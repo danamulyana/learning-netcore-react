@@ -11,8 +11,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(opt => 
 {
-    var conn = builder.Configuration.GetConnectionString("DefaultConnection");
     opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+builder.Services.AddCors(opt => 
+{
+    opt.AddPolicy("_CorsPolicy", policy => {
+        policy.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
 });
 
 var app = builder.Build();
@@ -23,6 +30,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("_CorsPolicy");
 
 app.UseAuthorization();
 
