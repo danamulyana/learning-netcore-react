@@ -1,6 +1,6 @@
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Container, List } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import { Activity } from '../models/activity';
 import NavBar from './Navbar';
 import ActivityDashboard from '../../features/activities/dashboard/ActivityDashbard';
