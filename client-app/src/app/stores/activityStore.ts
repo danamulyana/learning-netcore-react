@@ -87,4 +87,19 @@ export default class ActivityStore {
             })
         }
     }
+
+    deleteActivity = async (id: string) => {
+        this.loading = true;
+        try{
+            await agent.Activities.delete(id);
+            this.activities = [...this.activities.filter(a => a.id !== id)];
+            if(this.selectedActivity?.id === id) this.cancelSelectedActivity;
+            this.loading = false;
+        }catch(error){
+            console.error(error);
+            runInAction(() => {
+                this.loading = false;
+            })
+        }
+    }
 }
