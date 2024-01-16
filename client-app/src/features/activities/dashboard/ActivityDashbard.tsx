@@ -16,8 +16,19 @@ interface Props {
     deleteActivity: (id: string) => void;
 }
 
-export default function ActivityDashboard({ activities, selectedActivity,
-    selectActivity,cancelSelectActivity,editMode,openForm,closeForm,createOrEdit,deleteActivity }: Props){
+export default function ActivityDashboard({ 
+    activities, 
+    selectedActivity,
+    selectActivity,
+    cancelSelectActivity,
+    editMode,
+    openForm,
+    closeForm,
+    createOrEdit,
+    deleteActivity 
+    }: Props
+    ){
+        
     return(
         <Grid>
             <Grid.Column width='10'>
