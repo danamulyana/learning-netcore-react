@@ -5,7 +5,7 @@ export interface IProfile {
     displayName: string;
     bio?: string;
     image?: string;
-    Photos?: Photo[];
+    photos?: Photo[];
 }
 
 export class Profile implements IProfile {
@@ -19,7 +19,7 @@ export class Profile implements IProfile {
     displayName: string;
     bio?: string;
     image?: string;
-    Photos?: Photo[];
+    photos?: Photo[];
 }
 
 export interface Photo {
